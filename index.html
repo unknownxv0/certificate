@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+!
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kolker+Brush&family=Licorice&family=Neonderthaw&family=Pacifico&family=Raleway:ital,wght@1,200&family=Roboto:wght@100&family=The+Nautigal&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Sassy+Frass&family=Shadows+Into+Light&family=Yuji+Mai&display=swap" rel="stylesheet">
+    <title>Certificate</title>
+    <style>
+        * {
+            font-family: 'Roboto';
+        }
+        
+        header {
+            text-align: center;
+        }
+        
+        article {
+            background: whitesmoke;
+            text-align: center;
+            width: fit-content;
+            padding: 0 50px;
+            margin: auto;
+        }
+        
+        input {
+            border: none;
+            width: 200px;
+            outline: 1px solid black;
+            padding: 5px;
+        }
+        
+        input:focus {
+            outline: 1px solid rgb(0, 68, 255);
+        }
+        
+        button {
+            border: 1px solid black;
+            padding: 10px 20px;
+            font-size: 15px;
+            background: white;
+            cursor: pointer;
+        }
+        
+        h1 {
+            font-family: 'Yuji Mai', serif;
+        }
+        
+        div {
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>AcertiWeb</h1>
+    </header>
+    <section>
+        <article class="container">
+            <h2>Certificate</h2>
+            <label>
+                Nombre completo: <br> <br>
+                <input id="name" type='search' placeholder="Tu nombre">
+                <br>
+            </label> <br>
+            <canvas id="canvas" height="350px" width="500px"></canvas>
+            <div>
+                <a href="#" id="download-btn">
+                    <button>Descargar</button>
+                </a>
+            </div>
+        </article>
+    </section>
+    <script>
+        const canvas = document.getElementById('canvas')
+        const ctx = canvas.getContext('2d')
+        const nameInput = document.getElementById('name')
+        const downloadBtn = document.getElementById('download-btn')
+
+        const image = new Image()
+        image.src = 'img/certificado.jpg'
+        image.onload = function() {
+            drawImage()
+        }
+
+        function drawImage() {
+            // ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
+            ctx.font = '30px Roboto'
+            ctx.fillStyle = '#000 Courier New'
+            ctx.fillText(nameInput.value, 150, 193)
+        }
+
+        nameInput.addEventListener('input', function() {
+            drawImage()
+        })
+
+        downloadBtn.addEventListener('click', function() {
+            downloadBtn.href = canvas.toDataURL('image/jpg')
+            downloadBtn.download = 'Certificate - ' + nameInput.value
+        })
+    </script>
+</body>
+
+</html>
