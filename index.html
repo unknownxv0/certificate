@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
-!
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Joel Ortiz Sosa">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Kolker+Brush&family=Licorice&family=Neonderthaw&family=Pacifico&family=Raleway:ital,wght@1,200&family=Roboto:wght@100&family=The+Nautigal&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Sassy+Frass&family=Shadows+Into+Light&family=Yuji+Mai&display=swap" rel="stylesheet">
     <title>Certificate</title>
     <style>
         * {
             font-family: 'Roboto';
+        }
+        
+        *::-webkit-scrollbar {
+            display: none;
         }
         
         header {
@@ -52,12 +56,23 @@
         div {
             padding: 15px;
         }
+        
+        .art {
+            width: fit-content;
+            padding: 0 50px;
+            border: 1px solid gray;
+            cursor: not-allowed;
+        }
+        
+        .ad::selection {
+            user-select: none;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>AcertiWeb</h1>
+        <h1 translate="no">AcertiWeb</h1>
     </header>
     <section>
         <article class="container">
@@ -73,6 +88,12 @@
                     <button>Descargar</button>
                 </a>
             </div>
+        </article>
+        <br><br>
+        <article class="art">
+            <h1 class="ad">
+                Adivina Adivinador !
+            </h1>
         </article>
     </section>
     <script>
@@ -90,9 +111,9 @@
         function drawImage() {
             // ctx.clearRect(0, 0, canvas.width, canvas.height)
             ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
-            ctx.font = '30px Roboto'
-            ctx.fillStyle = '#000 Courier New'
-            ctx.fillText(nameInput.value, 150, 193)
+            ctx.font = '35px Lora'
+            ctx.fillStyle = '#000 Lora'
+            ctx.fillText(nameInput.value, 145, 193)
         }
 
         nameInput.addEventListener('input', function() {
